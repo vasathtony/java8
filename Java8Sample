@@ -1,0 +1,278 @@
+1) numList.stream().distinct().forEach(System.out::println);
+
+2)
+
+List<Integer> numList = Arrays.asList(1,2,3,4,1,2,3);
+        List<Integer> distinctNum = numList.stream().distinct().collect(Collectors.toList());
+        System.out.println(distinctNum);
+
+3)
+
+
+String[] fruitsArray = {"Apple", "Banana", "Pineapple", "Apple", "Banana", "Pineapple", "Banana"};
+    List<String> fruitsList = Arrays.asList(fruitsArray);
+    Map<String, Long> fruitsCountMap = fruitsList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    System.out.println("fruitsCountMap+++"+fruitsCountMap);
+
+
+
+
+4)
+
+int[] num={10,11,11,12,13,13};
+
+    HashMap<Integer, Integer> hm=new HashMap<>();
+
+    for(int i=0;i<=num.length-1;i++){
+
+        if(hm.containsKey(num[i])){
+
+            hm.remove(num[i]);
+        }
+
+        else{
+
+            hm.put(num[i],1);
+        }
+    }
+
+    for(Map.Entry e:hm.entrySet()){
+
+
+        System.out.println(e.getKey());
+    }
+}
+
+5)
+
+List<Integer> list= Arrays.asList(1,2,3,3,4,5,6,6);
+List<Integer> value=list.stream().filter(s->Collections.frequency(list,s)==1).collect(Collectors.toList());
+System.out.println("non repated"+value);
+
+
+
+List<Integer> value=list.stream().filter(s->Collections.frequency(list,s)>0).sorted(Collections,reverseOrder()).collect(Collectors.toList());
+System.out.println("frequency number printed in desc"+value);
+
+ 
+
+List<Integer> value=list.stream().filter(s->Collections.frequency(list,s)>1).sorted(Collections,reverseOrder()).collect(Collectors.toList());
+System.out.println("repeated number"+value);
+
+6)
+List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer sum = integers.stream()
+          .reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
+
+7)
+Stream combinedList =  Stream.concat(list1.stream(), list2.stream());
+        List<String> mergedList = (List<String>) combinedList.collect(Collectors.toList());
+        System.out.println(mergedList);
+
+8)
+int num = 36 - - 12 + + 6 - -6;
+        System.out.println("num is:::"+num);
+
+
+
+9)
+
+
+
+public static void main(String[] args) {
+        String str = "Today is Thursday and good to learn Java 8 on Thursday";
+        String newStr = str.toLowerCase();
+        newStr =  newStr.replace(" ", "");
+
+        Arrays.asList(newStr.split("")).stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).forEach((k,v)->{
+            if(v==1){
+                System.out.println(k);
+            }
+        });
+    }
+10)
+
+Integer[] arr1 = new Integer[] { 1, 9, 8, 7, 7, 8, 9 }; 
+        List<Integer> listdup = Arrays.asList(arr1);
+
+        // Converted the Array of type Integer into List
+
+        Set<Integer> setNoDups = listdup.stream().collect(Collectors.toSet());
+
+ 
+
+listdup.stream().distinct().collect(Collectors.toList());
+
+ 
+
+listdup.stream().collect(Collectors.groupingBy(Function.identity,Collectors.counting)
+.entrySet().stream().map(i->i.getKey()).Collect(Collectors.toList());
+
+ 
+
+Set<Integer> setNoDups = new HashSet<Interger>(listdup.size());
+  listdup.removeIf(r->!setNoDups.add(r));
+
+ 
+
+
+listdup.stream().collect(Collectors.groupingBy(Function.identity,Collectors.counting).forEach<k,v>(
+if(v==1)
+SOP(k));
+
+        // Converted the List into Stream and collected it to “Set”
+        // Set won't allow any duplicates
+
+        setNoDups.forEach((i) -> System.out.print(" " + i));
+
+ 
+
+ 
+
+
+        List<String> list1 = Arrays.asList("Java", "8");
+        List<String> list2 = Arrays.asList("explained", "through", "programs");
+
+        Stream<String> concatStream = Stream.concat(list1.stream(), list2.stream());
+
+        // Concatenated the list1 and list2 by converting them into Stream
+
+        concatStream.forEach(str -> System.out.print(str + " "));
+
+        // Printed the Concatenated Stream
+Stream<String> st1=Stream.of(list1,list2).flatmap(l->l.stream().collect(Collectors.toList())
+.stream();
+
+ 
+
+
+List<String> list=new ArrayList();
+Stream.of(list1,list2).forEach(list::addAll);
+SOP(list);
+
+ 
+
+ 
+
+        //find non repeating character in string
+
+String str="Today is Thursday and good to learn java 8 on Thursday";
+
+Character res=str.chars()
+.mapToObj(s->Character.toLowerCase(Character.valueOf((char)s)))
+.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,
+Collectors.counting())).entrySet().stream().
+filter(entry->entry.getValue()==1L).
+map(entry->entry.getKey()).findFirst().get();
+
+        System.out.println(res);
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+         
+
+
+like 1
+
+
+
+
+[2/9 5:59 PM] Bali, Sarika
+
+Integer[] arr1 = new Integer[] { 1, 9, 8, 7, 7, 8, 9 }; 
+        List<Integer> listdup = Arrays.asList(arr1);
+
+        // Converted the Array of type Integer into List
+
+        Set<Integer> setNoDups = listdup.stream().collect(Collectors.toSet());
+
+ 
+
+listdup.stream().distinct().collect(Collectors.toList());
+
+ 
+
+listdup.stream().collect(Collectors.groupingBy(Function.identity,Collectors.counting)
+.entrySet().stream().map(i->i.getKey()).Collect(Collectors.toList());
+
+ 
+
+Set<Integer> setNoDups = new HashSet<Interger>(listdup.size());
+  listdup.removeIf(r->!setNoDups.add(r));
+
+ 
+
+
+listdup.stream().collect(Collectors.groupingBy(Function.identity,Collectors.counting).forEach<k,v>(
+if(v==1)
+SOP(k));
+
+        // Converted the List into Stream and collected it to “Set”
+        // Set won't allow any duplicates
+
+        setNoDups.forEach((i) -> System.out.print(" " + i));
+
+ 
+
+ 
+
+
+        List<String> list1 = Arrays.asList("Java", "8");
+        List<String> list2 = Arrays.asList("explained", "through", "programs");
+
+        Stream<String> concatStream = Stream.concat(list1.stream(), list2.stream());
+
+        // Concatenated the list1 and list2 by converting them into Stream
+
+        concatStream.forEach(str -> System.out.print(str + " "));
+
+        // Printed the Concatenated Stream
+Stream<String> st1=Stream.of(list1,list2).flatmap(l->l.stream().collect(Collectors.toList())
+.stream();
+
+ 
+
+
+List<String> list=new ArrayList();
+Stream.of(list1,list2).forEach(list::addAll);
+SOP(list);
+
+ 
+
+ 
+
+        //find non repeating character in string
+
+String str="Today is Thursday and good to learn java 8 on Thursday";
+
+Character res=str.chars()
+.mapToObj(s->Character.toLowerCase(Character.valueOf((char)s)))
+.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,
+Collectors.counting())).entrySet().stream().
+filter(entry->entry.getValue()==1L).
+map(entry->entry.getKey()).findFirst().get();
+
+        System.out.println(res);
+
+ 
